@@ -64,6 +64,7 @@ namespace NOTEPAD
            
             Thread.Sleep(1000);
             
+            
             FileStream fs = File.Create(filepath);
             fs.Close();
             string SaveText = richTextBox1.Text;
@@ -79,7 +80,7 @@ namespace NOTEPAD
         public void NP_Load()
         {
             didithappentimer2 = true;
-            
+            richTextBox1.Clear();
             OpenFileDialog openFileDialog = new OpenFileDialog();
 
             openFileDialog.InitialDirectory = "c:\\";
