@@ -10,6 +10,7 @@ namespace NOTEPAD
         bool didithappentimer2 = false;
         string filepath = "";
         string filepath2 = "";
+        string LoadText = "";
         string SaveText = "";
         public Form1()
         {
@@ -63,13 +64,18 @@ namespace NOTEPAD
             }
            
             Thread.Sleep(500);
-            
-            
-            FileStream fs = File.Create(filepath);
-            fs.Close();
-            string SaveText = richTextBox1.Text;
-            File.WriteAllText(filepath, SaveText);
 
+            if ((filepath != null) && (filepath != ""))
+            {
+                FileStream fs = File.Create(filepath);
+                fs.Close();
+                string SaveText = richTextBox1.Text;
+                File.WriteAllText(filepath, SaveText);
+            }
+            else
+            {
+                return;
+            }
             Thread.Sleep(500);
 
             MessageBox.Show("Saved File", "Saved File");
@@ -93,8 +99,15 @@ namespace NOTEPAD
                 //Get the path of specified file
                 filepath2 = openFileDialog.FileName;
             }
-            
-            string LoadText = File.ReadAllText(filepath2);
+
+            if ((filepath2 != null) && (filepath2 != ""))
+            {
+                string LoadText = File.ReadAllText(filepath2);
+            }
+            else
+            {
+                return;
+            }
             richTextBox1.AppendText(LoadText);
 
             Thread.Sleep(500);
