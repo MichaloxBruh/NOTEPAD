@@ -1,11 +1,13 @@
 using System.IO;
 using System.IO.Pipes;
+using System.Windows.Forms;
 
 namespace NOTEPAD
 {
     public partial class Form1 : Form
     {
-        bool didithappentimer = false;
+       bool didithappentimer = false;
+        bool didithappentimer2 = false;
        string filepath = "";
        string SaveText = "";
         public Form1()
@@ -28,13 +30,16 @@ namespace NOTEPAD
             if ((filepath != null) && (filepath != "") && (didithappentimer == false))
                 {
                     string SaveText = richTextBox1.Text;
-                Save();
+                NP_Save();
                 };
         }
         //Load
         public void button1_Click_1(object sender, EventArgs e)
         {
-            
+            if (didithappentimer2 == false)
+            {
+                NP_Load();
+            }
         }
 
         public void textBox1_TextChanged(object sender, EventArgs e)
@@ -42,7 +47,7 @@ namespace NOTEPAD
             filepath = textBox1.Text;
         }
     
-        public void Save()
+        public void NP_Save()
         {
             didithappentimer = true;
 
@@ -56,5 +61,14 @@ namespace NOTEPAD
             didithappentimer = false;
         }
 
+        public void NP_Load()
+        {
+            didithappentimer2 = true;
+            string LoadText = File.ReadAllText(filepath);
+            richTextBox1.AppendText(LoadText);
+
+            Thread.Sleep(2000);
+            didithappentimer2 = false;
+        }
     }
 }

@@ -39,7 +39,7 @@
             // 
             richTextBox1.Location = new Point(-4, 28);
             richTextBox1.Name = "richTextBox1";
-            richTextBox1.Size = new Size(809, 427);
+            richTextBox1.Size = new Size(805, 429);
             richTextBox1.TabIndex = 1;
             richTextBox1.Text = "";
             richTextBox1.TextChanged += richTextBox1_TextChanged;
