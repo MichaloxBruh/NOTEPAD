@@ -62,7 +62,7 @@ namespace NOTEPAD
 
             }
            
-            Thread.Sleep(1000);
+            Thread.Sleep(500);
             
             
             FileStream fs = File.Create(filepath);
@@ -70,7 +70,7 @@ namespace NOTEPAD
             string SaveText = richTextBox1.Text;
             File.WriteAllText(filepath, SaveText);
 
-            Thread.Sleep(2000);
+            Thread.Sleep(500);
 
             MessageBox.Show("Saved File", "Saved File");
 
@@ -97,7 +97,7 @@ namespace NOTEPAD
             string LoadText = File.ReadAllText(filepath2);
             richTextBox1.AppendText(LoadText);
 
-            Thread.Sleep(2000);
+            Thread.Sleep(500);
 
             MessageBox.Show("Loaded File", "Loaded File");
 
