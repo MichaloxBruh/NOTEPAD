@@ -71,6 +71,8 @@ namespace NOTEPAD
 
             Thread.Sleep(2000);
 
+            MessageBox.Show("Saved File", "Saved File");
+
             didithappentimer = false;
         }
 
@@ -95,7 +97,11 @@ namespace NOTEPAD
             richTextBox1.AppendText(LoadText);
 
             Thread.Sleep(2000);
+
+            MessageBox.Show("Loaded File", "Loaded File");
+
             didithappentimer2 = false;
+            
         }
 
         private void openFileDialog1_FileOk(object sender, System.ComponentModel.CancelEventArgs e)

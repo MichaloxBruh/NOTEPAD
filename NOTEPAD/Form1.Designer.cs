@@ -36,15 +36,18 @@
             // 
             // richTextBox1
             // 
-            richTextBox1.Location = new Point(-4, 29);
+            richTextBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            richTextBox1.AutoWordSelection = true;
+            richTextBox1.Location = new Point(1, 29);
             richTextBox1.Name = "richTextBox1";
-            richTextBox1.Size = new Size(1172, 635);
+            richTextBox1.Size = new Size(1170, 635);
             richTextBox1.TabIndex = 1;
             richTextBox1.Text = "";
             richTextBox1.TextChanged += richTextBox1_TextChanged;
             // 
             // button2
             // 
+            button2.AutoSize = true;
             button2.Location = new Point(135, -1);
             button2.Name = "button2";
             button2.Size = new Size(144, 33);
@@ -55,6 +58,7 @@
             // 
             // button1
             // 
+            button1.AutoSize = true;
             button1.Location = new Point(-4, -1);
             button1.Name = "button1";
             button1.Size = new Size(143, 33);
@@ -80,6 +84,7 @@
             Text = "home-made notepad";
             Load += Form1_Load;
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
