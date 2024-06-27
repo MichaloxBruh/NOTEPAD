@@ -24,7 +24,7 @@ namespace NOTEPAD
 
         public void richTextBox1_TextChanged(object sender, EventArgs e)
         {
-
+            string SaveText = richTextBox1.Text;
         }
         //Save
         public void button1_Click(object sender, EventArgs e)
@@ -40,7 +40,7 @@ namespace NOTEPAD
         public void button1_Click_1(object sender, EventArgs e)
         {
             if (didithappentimer2 == false)
-            {
+            { 
                 NP_Load();
             }
         }
@@ -62,20 +62,15 @@ namespace NOTEPAD
                 filepath = Path.GetFullPath(saveFileDialog1.FileName);
 
             }
-           
-            Thread.Sleep(500);
 
-            if ((filepath != null) && (filepath != ""))
-            {
+            Thread.Sleep(1000);
+
+           
                 FileStream fs = File.Create(filepath);
                 fs.Close();
                 string SaveText = richTextBox1.Text;
                 File.WriteAllText(filepath, SaveText);
-            }
-            else
-            {
-                return;
-            }
+
             Thread.Sleep(500);
 
             MessageBox.Show("Saved File", "Saved File");
@@ -86,7 +81,7 @@ namespace NOTEPAD
         public void NP_Load()
         {
             didithappentimer2 = true;
-            richTextBox1.Clear();
+            richTextBox1.Clear();       
             OpenFileDialog openFileDialog = new OpenFileDialog();
 
             openFileDialog.InitialDirectory = "c:\\";
@@ -100,27 +95,29 @@ namespace NOTEPAD
                 filepath2 = openFileDialog.FileName;
             }
 
-            if ((filepath2 != null) && (filepath2 != ""))
-            {
+            
                 string LoadText = File.ReadAllText(filepath2);
-            }
-            else
-            {
-                return;
-            }
+            
+
+            Console.Write(LoadText);
             richTextBox1.AppendText(LoadText);
 
-            Thread.Sleep(500);
+            Thread.Sleep(1000);
 
             MessageBox.Show("Loaded File", "Loaded File");
 
             didithappentimer2 = false;
-            
+
         }
 
         private void openFileDialog1_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
         {
 
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Made By: MichaloxBruh 25.06.2024", "About");
         }
     }
 }
