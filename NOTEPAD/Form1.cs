@@ -95,7 +95,7 @@ namespace NOTEPAD
                 filepath2 = openFileDialog.FileName;
             }
 
-            
+                
                 string LoadText = File.ReadAllText(filepath2);
             
 
@@ -118,6 +118,16 @@ namespace NOTEPAD
         private void button3_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Made By: MichaloxBruh 25.06.2024", "About");
+        }
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == (Keys.Control | Keys.S))
+            {
+                NP_Save();
+                return true;
+            };
+            return base.ProcessCmdKey(ref msg, keyData);
         }
     }
 }
