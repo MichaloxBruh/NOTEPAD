@@ -33,6 +33,12 @@
             button1 = new Button();
             openFileDialog1 = new OpenFileDialog();
             button3 = new Button();
+            menuStrip1 = new MenuStrip();
+            menuToolStripMenuItem = new ToolStripMenuItem();
+            saveToolStripMenuItem = new ToolStripMenuItem();
+            loadToolStripMenuItem = new ToolStripMenuItem();
+            aboutToolStripMenuItem = new ToolStripMenuItem();
+            menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // richTextBox1
@@ -40,9 +46,9 @@
             richTextBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             richTextBox1.AutoWordSelection = true;
             richTextBox1.Font = new Font("Verdana", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 238);
-            richTextBox1.Location = new Point(1, 29);
+            richTextBox1.Location = new Point(1, 59);
             richTextBox1.Name = "richTextBox1";
-            richTextBox1.Size = new Size(1170, 635);
+            richTextBox1.Size = new Size(1170, 605);
             richTextBox1.TabIndex = 1;
             richTextBox1.Text = "";
             richTextBox1.TextChanged += richTextBox1_TextChanged;
@@ -50,7 +56,7 @@
             // button2
             // 
             button2.AutoSize = true;
-            button2.Location = new Point(135, -1);
+            button2.Location = new Point(141, 27);
             button2.Name = "button2";
             button2.Size = new Size(137, 33);
             button2.TabIndex = 2;
@@ -61,7 +67,7 @@
             // button1
             // 
             button1.AutoSize = true;
-            button1.Location = new Point(-7, -1);
+            button1.Location = new Point(1, 27);
             button1.Name = "button1";
             button1.Size = new Size(146, 33);
             button1.TabIndex = 3;
@@ -78,13 +84,50 @@
             // 
             button3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             button3.AutoSize = true;
-            button3.Location = new Point(1019, -1);
+            button3.Location = new Point(1019, 27);
             button3.Name = "button3";
             button3.Size = new Size(152, 33);
             button3.TabIndex = 4;
             button3.Text = "About";
             button3.UseVisualStyleBackColor = true;
             button3.Click += button3_Click;
+            // 
+            // menuStrip1
+            // 
+            menuStrip1.Items.AddRange(new ToolStripItem[] { menuToolStripMenuItem });
+            menuStrip1.Location = new Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Size = new Size(1169, 24);
+            menuStrip1.TabIndex = 5;
+            menuStrip1.Text = "menuStrip1";
+            // 
+            // menuToolStripMenuItem
+            // 
+            menuToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { saveToolStripMenuItem, loadToolStripMenuItem, aboutToolStripMenuItem });
+            menuToolStripMenuItem.Name = "menuToolStripMenuItem";
+            menuToolStripMenuItem.Size = new Size(50, 20);
+            menuToolStripMenuItem.Text = "Menu";
+            // 
+            // saveToolStripMenuItem
+            // 
+            saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+            saveToolStripMenuItem.Size = new Size(180, 22);
+            saveToolStripMenuItem.Text = "Save";
+            saveToolStripMenuItem.Click += saveToolStripMenuItem_Click;
+            // 
+            // loadToolStripMenuItem
+            // 
+            loadToolStripMenuItem.Name = "loadToolStripMenuItem";
+            loadToolStripMenuItem.Size = new Size(180, 22);
+            loadToolStripMenuItem.Text = "Load";
+            loadToolStripMenuItem.Click += loadToolStripMenuItem_Click;
+            // 
+            // aboutToolStripMenuItem
+            // 
+            aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            aboutToolStripMenuItem.Size = new Size(180, 22);
+            aboutToolStripMenuItem.Text = "About";
+            aboutToolStripMenuItem.Click += aboutToolStripMenuItem_Click;
             // 
             // Form1
             // 
@@ -95,9 +138,13 @@
             Controls.Add(button1);
             Controls.Add(button2);
             Controls.Add(richTextBox1);
+            Controls.Add(menuStrip1);
+            MainMenuStrip = menuStrip1;
             Name = "Form1";
             Text = "home-made notepad";
             Load += Form1_Load;
+            menuStrip1.ResumeLayout(false);
+            menuStrip1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -109,5 +156,10 @@
         private Button button1;
         private OpenFileDialog openFileDialog1;
         private Button button3;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem menuToolStripMenuItem;
+        private ToolStripMenuItem saveToolStripMenuItem;
+        private ToolStripMenuItem loadToolStripMenuItem;
+        private ToolStripMenuItem aboutToolStripMenuItem;
     }
 }

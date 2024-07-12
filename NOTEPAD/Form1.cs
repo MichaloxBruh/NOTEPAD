@@ -40,7 +40,7 @@ namespace NOTEPAD
         public void button1_Click_1(object sender, EventArgs e)
         {
             if (didithappentimer2 == false)
-            { 
+            {
                 NP_Load();
             }
         }
@@ -65,11 +65,11 @@ namespace NOTEPAD
 
             Thread.Sleep(1000);
 
-           
-                FileStream fs = File.Create(filepath);
-                fs.Close();
-                string SaveText = richTextBox1.Text;
-                File.WriteAllText(filepath, SaveText);
+
+            FileStream fs = File.Create(filepath);
+            fs.Close();
+            string SaveText = richTextBox1.Text;
+            File.WriteAllText(filepath, SaveText);
 
             Thread.Sleep(500);
 
@@ -81,7 +81,7 @@ namespace NOTEPAD
         public void NP_Load()
         {
             didithappentimer2 = true;
-            richTextBox1.Clear();       
+            richTextBox1.Clear();
             OpenFileDialog openFileDialog = new OpenFileDialog();
 
             openFileDialog.InitialDirectory = "c:\\";
@@ -95,9 +95,9 @@ namespace NOTEPAD
                 filepath2 = openFileDialog.FileName;
             }
 
-                
-                string LoadText = File.ReadAllText(filepath2);
-            
+
+            string LoadText = File.ReadAllText(filepath2);
+
 
             Console.Write(LoadText);
             richTextBox1.AppendText(LoadText);
@@ -127,7 +127,28 @@ namespace NOTEPAD
                 NP_Save();
                 return true;
             };
+            if (keyData == (Keys.Control | Keys.O))
+            {
+                NP_Load();
+                return true;
+            };
             return base.ProcessCmdKey(ref msg, keyData);
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            NP_Save();
+
+        }
+
+        private void loadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            NP_Load();
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Made By: MichaloxBruh 25.06.2024", "About");
         }
     }
 }
