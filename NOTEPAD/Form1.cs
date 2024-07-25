@@ -11,7 +11,9 @@ namespace NOTEPAD
         string filepath = "";
         string filepath2 = "";
         string LoadText = "";
+        int LetterNum = 0;
         string SaveText = "";
+        int FontSize = 14;
         public Form1()
         {
             InitializeComponent();
@@ -19,12 +21,13 @@ namespace NOTEPAD
 
         public void Form1_Load(object sender, EventArgs e)
         {
-
+            richTextBox1.SelectionFont = new Font(richTextBox1.SelectionFont.FontFamily, 14);
         }
 
         public void richTextBox1_TextChanged(object sender, EventArgs e)
         {
             string SaveText = richTextBox1.Text;
+            LetterNum = SaveText.Length;
         }
         //Save
         public void button1_Click(object sender, EventArgs e)
@@ -117,9 +120,9 @@ namespace NOTEPAD
 
         private void button3_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Made By: MichaloxBruh 25.06.2024", "About");
+            MessageBox.Show("Made By: MichaloxBruh 25.06.2024 https://github.com/MichaloxBruh", "About");
         }
-
+        //richTextBox1
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
             if (keyData == (Keys.Control | Keys.S))
@@ -130,6 +133,20 @@ namespace NOTEPAD
             if (keyData == (Keys.Control | Keys.O))
             {
                 NP_Load();
+                return true;
+            };
+            if (keyData == (Keys.Control | Keys.Oemplus))
+            {
+                richTextBox1.SelectAll();
+                richTextBox1.SelectionFont = new Font("Verdana", FontSize + 1, FontStyle.Bold);
+                FontSize = (FontSize + 1);
+                return true;
+            };
+            if (keyData == (Keys.Control | Keys.OemMinus))
+            {
+                richTextBox1.SelectAll();
+                richTextBox1.SelectionFont = new Font("Verdana", FontSize - 1, FontStyle.Bold);
+                FontSize = (FontSize - 1);
                 return true;
             };
             return base.ProcessCmdKey(ref msg, keyData);
@@ -149,6 +166,36 @@ namespace NOTEPAD
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Made By: MichaloxBruh 25.06.2024", "About");
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void fontDialog1_Apply(object sender, EventArgs e)
+        {
+
+        }
+
+        private void vScrollBar1_Scroll(object sender, ScrollEventArgs e)
+        {
+
+        }
+
+        private void fontDialog1_Apply_1(object sender, EventArgs e)
+        {
+
         }
     }
 }
